@@ -23,9 +23,9 @@ function addToHistory(income, totalExpenses, balance) {
     historyItem.innerHTML = `
         <p class="text-xs text-gray-500">Serial: ${count}</p>
         <p class="text-xs text-gray-500">${new Date().toLocaleDateString()}</p>
-        <p class="text-xs text-gray-500">Income: $${formatCurrency(income)}</p>
-        <p class="text-xs text-gray-500">Expenses: $${formatCurrency(totalExpenses)}</p>
-        <p class="text-xs text-gray-500">Balance: $${formatCurrency(balance)}</p>
+        <p class="text-xs text-gray-500">Income: ৳${formatCurrency(income)}</p>
+        <p class="text-xs text-gray-500">Expenses: ৳${formatCurrency(totalExpenses)}</p>
+        <p class="text-xs text-gray-500">Balance: ৳${formatCurrency(balance)}</p>
     `
     const historyContainer = document.getElementById("history-list");
     historyContainer.insertBefore(historyItem, historyContainer.firstChild);
@@ -91,12 +91,12 @@ calculateButton.addEventListener("click", function () {
 const calculateSavingsButton = document.getElementById("calculate-savings");
 calculateSavingsButton.addEventListener("click", function () {
 
-    const income = parseFloat(document.getElementById("income").value);
-    const software = parseFloat(document.getElementById("software").value);
-    const courses = parseFloat(document.getElementById("courses").value);
-    const internet = parseFloat(document.getElementById("internet").value);
+    const income = getInputValueById("income");
+    const software = getInputValueById("software");
+    const courses = getInputValueById("courses");
+    const internet = getInputValueById("internet");
 
-    const savingsValue = parseFloat(document.getElementById("savings").value);
+    const savingsValue = getInputValueById("savings");
 
 
     const totalExpenses = software + courses + internet;
